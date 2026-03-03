@@ -1,5 +1,5 @@
 # Terminal & shell
-brew "ghostty"
+cask "ghostty"
 brew "zsh"
 brew "tmux"
 brew "yazi"

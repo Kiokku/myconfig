@@ -20,7 +20,10 @@
     "gpu",
     "memory",
     "disk",
-    "localip",
+    {
+      "type": "localip",
+      "defaultRouteOnly": false
+    },
     "break"
   ]
 }

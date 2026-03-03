@@ -263,13 +263,24 @@ export PATH="$PATH:/Users/maotianyu/.local/bin"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-source fzf.zsh
+# Load fzf bindings/completions from repo-managed path, with a local fallback.
+if [ -f "$HOME/.config/terminal-config/zsh/zfz/config.zsh" ]; then
+  source "$HOME/.config/terminal-config/zsh/zfz/config.zsh"
+elif [ -f "$HOME/.fzf.zsh" ]; then
+  source "$HOME/.fzf.zsh"
+fi
 
 # on-my-posh theme.json
-eval "$(oh-my-posh init zsh --config ~/themes.json)"
+if command -v oh-my-posh >/dev/null 2>&1; then
+  if [ -f "$HOME/.config/ohmyposh/theme.omp.json" ]; then
+    eval "$(oh-my-posh init zsh --config "$HOME/.config/ohmyposh/theme.omp.json")"
+  elif [ -f "$HOME/themes.json" ]; then
+    eval "$(oh-my-posh init zsh --config "$HOME/themes.json")"
+  fi
+fi
 export TERM=xterm-256color
 
 # fastfetch
 if [[ -o interactive ]] && command -v fastfetch >/dev/null 2>&1; then
-  fastfetch --load-config "$HOME/.config/fastfetch/config.jsonc"
+  fastfetch --config "$HOME/.config/fastfetch/config.jsonc"
 fi

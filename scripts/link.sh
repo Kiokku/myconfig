@@ -52,6 +52,7 @@ link_file "$ROOT_DIR/yazi/yazi.toml" "$HOME/.config/yazi/yazi.toml"
 link_file "$ROOT_DIR/yazi/keymap.toml" "$HOME/.config/yazi/keymap.toml"
 link_file "$ROOT_DIR/yazi/theme.toml" "$HOME/.config/yazi/theme.toml"
 link_file "$ROOT_DIR/zsh/oh-my-posh/theme.omp.json" "$HOME/.config/ohmyposh/theme.omp.json"
+link_file "$ROOT_DIR/zsh/oh-my-posh/theme.omp.json" "$HOME/themes.json"
 link_file "$ROOT_DIR/fastfetch/config.jsonc" "$HOME/.config/fastfetch/config.jsonc"
 
 # repo-level shared files

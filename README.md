@@ -32,9 +32,34 @@ This repo is synced from the following active local paths:
 - `~/Library/Application Support/lazygit/config.yml`
 - `~/.config/fastfetch/config.jsonc`
 
+## Manual Prerequisites (Important)
+
+- `bootstrap.sh` does **not** install Homebrew packages.
+- `bootstrap.sh` only:
+  - runs `scripts/install.sh` (installs `zimfw` + runs `fzf` post-install script if available)
+  - runs `scripts/link.sh` (creates symlinks and backups)
+- On macOS, install Homebrew manually first (requires administrator permission).
+
+Install all required tools with:
+
+```bash
+brew bundle --file Brewfile
+```
+
+Tools expected by this repo:
+- cask: `ghostty`
+- formulae: `zsh`, `tmux`, `yazi`, `fastfetch`, `oh-my-posh`, `fzf`, `git`, `lazygit`
+
+If you prefer manual install without `Brewfile`:
+
+```bash
+brew install --cask ghostty
+brew install zsh tmux yazi fastfetch oh-my-posh fzf git lazygit
+```
+
 ## Quick Start
 
-1. Install dependencies manually (or with Homebrew + `Brewfile`):
+1. Install dependencies (Homebrew required):
 
 ```bash
 brew bundle --file Brewfile
